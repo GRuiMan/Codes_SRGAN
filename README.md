@@ -202,7 +202,7 @@ lr_pre,hr_pre=PreTransforms(split='train')(pre)
 
 **AverageMeter** 类是跟踪和计算数字流的平均值、总和和计数的实用程序。它可用于监控训练过程中的损失和准确度等指标，从而提供对模型性能的深入了解。
 
-**clip_gradient **其中 clip_gradient 可以将梯度剪切到指定范围，防止梯度爆炸
+**clip_gradient **  其中 clip_gradient 可以将梯度剪切到指定范围，防止梯度爆炸
 
 **adjust_learning_rate** 可以修改优化器的学习率，这对于执行学习率计划非常有用。
 
@@ -210,9 +210,9 @@ lr_pre,hr_pre=PreTransforms(split='train')(pre)
 
 ## Events Files
 
-**train**  ：**train.e14516687：**训练错误提示文件，直接文本文件打开。**train.o14516687：**训练过程提示文件，直接文本文件打开。
+**train**     **train.e14516687**训练错误提示文件，直接文本文件打开。**train.o14516687**训练过程提示文件，直接文本文件打开。
 
-**runs **：runs文件夹下存有事件文件：events.out.tfevents.1722695704.b3301r8n2.109176.0。保存训练过程中的内容损失loss_c，对抗损失中的生成器损失loss_g，对抗损失中的判别器损失loss_d。
+**runs **      runs文件夹下存有事件文件：events.out.tfevents.1722695704.b3301r8n2.109176.0。保存训练过程中的内容损失loss_c，对抗损失中的生成器损失loss_g，对抗损失中的判别器损失loss_d。
 
 
 
