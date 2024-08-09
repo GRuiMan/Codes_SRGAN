@@ -30,15 +30,23 @@
 
 ### DataObj
 
-需要降尺度的目标数据，2023年8月11号18时预报的8月12号的全天的预报降水，并用CDO裁剪出的中国数据。2023_08_11_18_08_12_china.nc。
+**2023_08_11_18_08_12_china.nc**2023年8月11号18时预报的8月12号的中国全天的预报降水
+
+**2023_08_12_06_08_13_china.nc**
+
+**2023_08_13_12_08_14_china.nc**
+
+**2023_08_14_18_08_15_china.nc**
+
+
 
 ### DataResults
 
-**Historical_Records：**之前由于损失函数以及batch_size选取有误导致的降尺度失败的文件
+**Historical_Records**之前由于损失函数以及batch_size选取有误导致的降尺度失败的文件
 
-**ResultEval：**根据评估数据集DataEval文件夹下进行降尺度后的数据文件，对于每个文件有pre_lr,pre_hr,pre_sr，00_pre_lr是2023年8月1日的降水低分辨率数据，以此类推。
+**ResultEval**根据评估数据集DataEval文件夹下进行降尺度后的数据文件，对于每个文件有pre_lr,pre_hr,pre_sr，00_pre_lr是2023年8月1日的降水低分辨率数据，以此类推。
 
-**ResultObj：**根据目标数据集DataObj文件夹下进行降尺度后的数据文件，命名规则与上类似。
+**ResultObj**根据目标数据集DataObj文件夹下进行降尺度后的数据文件，命名规则与上类似。
 
 2023_08_11_18_08_12_china.nc降尺度后的数据文件
 
@@ -100,7 +108,7 @@ same to downscale_obj.py,but from 1$\cdot$1–>0.01$\cdot$0.01
 
 ### 4downscale_obj.py
 
-same to downscale_obj.py,but from 0.4 $\cdot$0.4–>0.01 $\cdot$0.01
+same to downscale_obj.py,but from 0.4 $\cdot$0.4  to  0.01 $\cdot$0.01
 
 **Load the Trained Model**
 
@@ -118,9 +126,9 @@ produce low revolution and high revolution data
 
 **High resolution data:**interpolation form low resolution data.
 
-if split='eval/train/',from 1$\cdot$1–>0.01$\cdot$0.01
+if split='eval/train/',from 1$\cdot$1  to 0.01$\cdot$0.01
 
-if split=‘obj’,from 0.4 $\cdot$0.4–>0.01 $\cdot$0.01
+if split=‘obj’,from 0.4 $\cdot$0.4  to 0.01 $\cdot$0.01
 
 ### Eval_Correctness.ipynb
 
@@ -158,11 +166,11 @@ hr_pre.to_netcdf("pre_hr.nc")
 
 **SRResModel**：超分辨率残差模型。它是一个专为提高图像分辨率而设计的模型。该网络从一个卷积块开始，然后是一系列残差块、另一个卷积块、一系列用于上采样的亚像素卷积块，最后是一个卷积块，以产生高分辨率输出。该模型的第一个和最后一个卷积块使用较大的内核尺寸，中间的卷积块使用较小的内核尺寸。
 
-**Generator：**生成器模型,其结构与SRResModel完全一致。造数据用的
+**Generator**：生成器模型,其结构与SRResModel完全一致。造数据用的
 
-**Discriminator：**SRGAN判别器，判断数据是造的还是真的。
+**Discriminator**：SRGAN判别器，判断数据是造的还是真的。
 
-**TruncatedVGG19：**truncated VGG19网络。用于在训练中循环计算VGG特征空间的MSE损失。如果需要提高图像成超分辨率，则需要利用VGG计算特征图以实现降低感知损失(Preceived Loss)，如果为了提高像素准确性(pixel accuracy)，则不需利用VGG计算特征图。vgg19-dcbb9e9d.pth 需要首先放在主目录下.
+**TruncatedVGG19**：truncated VGG19网络。用于在训练中循环计算VGG特征空间的MSE损失。如果需要提高图像成超分辨率，则需要利用VGG计算特征图以实现降低感知损失(Preceived Loss)，如果为了提高像素准确性(pixel accuracy)，则不需利用VGG计算特征图。vgg19-dcbb9e9d.pth 需要首先放在主目录下.
 
 WINDOWS下
 
@@ -194,7 +202,7 @@ lr_pre,hr_pre=PreTransforms(split='train')(pre)
 
 **AverageMeter** 类是跟踪和计算数字流的平均值、总和和计数的实用程序。它可用于监控训练过程中的损失和准确度等指标，从而提供对模型性能的深入了解。
 
-**clip_gradient **，其中 clip_gradient 可以将梯度剪切到指定范围，防止梯度爆炸
+**clip_gradient **其中 clip_gradient 可以将梯度剪切到指定范围，防止梯度爆炸
 
 **adjust_learning_rate** 可以修改优化器的学习率，这对于执行学习率计划非常有用。
 
@@ -204,7 +212,7 @@ lr_pre,hr_pre=PreTransforms(split='train')(pre)
 
 **train**  ：**train.e14516687：**训练错误提示文件，直接文本文件打开。**train.o14516687：**训练过程提示文件，直接文本文件打开。
 
-**runs ：**runs文件夹下存有事件文件：events.out.tfevents.1722695704.b3301r8n2.109176.0。保存训练过程中的内容损失loss_c，对抗损失中的生成器损失loss_g，对抗损失中的判别器损失loss_d。
+**runs **：runs文件夹下存有事件文件：events.out.tfevents.1722695704.b3301r8n2.109176.0。保存训练过程中的内容损失loss_c，对抗损失中的生成器损失loss_g，对抗损失中的判别器损失loss_d。
 
 
 
