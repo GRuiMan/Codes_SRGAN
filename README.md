@@ -1,5 +1,7 @@
 # Code Structure && Documentation
 
+鸣谢：@钱彬，代码根据 @钱彬更改得来，基本框架与思路一致。
+
 ## Idea Sources：
 
 ### Blogs:
