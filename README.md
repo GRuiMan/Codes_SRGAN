@@ -122,9 +122,9 @@ same to downscale_obj.py,but from 0.4 $\cdot$0.4  to  0.01 $\cdot$0.01
 
 produce low revolution and high revolution data
 
-**Low resolution data:**select the certain area(lonw=106E,lone=110E,lats=26N,latn=30N) of origin data(lonw=70E,lone=140E,lats=15N,latn=55N).
+**Low resolution data**select the certain area(lonw=106E,lone=110E,lats=26N,latn=30N) of origin data(lonw=70E,lone=140E,lats=15N,latn=55N).
 
-**High resolution data:**interpolation form low resolution data.
+**High resolution data**interpolation form low resolution data.
 
 if split='eval/train/',from 1$\cdot$1  to 0.01$\cdot$0.01
 
