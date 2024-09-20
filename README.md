@@ -1,6 +1,7 @@
 # Code Structure && Documentation
 
 鸣谢：@钱彬，来源于以下几篇博客与文章，基本框架与思路一致。有问题可联系3588430252@qq.com or 202183300708@nuist.edu.cn
+鸣谢：@祝世堃 负责主要思路
 
 ## Idea Sources：
 
